@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c30-Bz-IBS">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Table View Controller-->
+        <scene sceneID="eC7-Ei-bZG">
+            <objects>
+                <tableViewController id="0MU-D2-qYd" customClass="MainTableViewController" customModule="Hogwarts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eOy-6t-xyT" customClass="main">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="guessCell" rowHeight="109" id="ch5-kI-2Jb" customClass="HouseGuestTableViewCell" customModule="Hogwarts" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="109"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ch5-kI-2Jb" id="m52-XO-05M">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YEd-SS-7NV">
+                                            <rect key="frame" x="8" y="8" width="398" height="93"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjh-Sn-e0R">
+                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="93"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYy-YS-lF2">
+                                                    <rect key="frame" x="298" y="0.0" width="100" height="93"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="kVw-ng-ywM"/>
+                                                        <constraint firstAttribute="width" secondItem="EYy-YS-lF2" secondAttribute="height" multiplier="1:1" id="s6N-4z-vW7"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="hogwarts"/>
+                                                    <connections>
+                                                        <action selector="houseButtonTapped:" destination="ch5-kI-2Jb" eventType="touchUpInside" id="w9e-Cq-VJj"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YEd-SS-7NV" firstAttribute="leading" secondItem="m52-XO-05M" secondAttribute="leading" constant="8" id="Gbw-71-buG"/>
+                                        <constraint firstAttribute="trailing" secondItem="YEd-SS-7NV" secondAttribute="trailing" constant="8" id="Khm-3X-WtC"/>
+                                        <constraint firstItem="YEd-SS-7NV" firstAttribute="top" secondItem="m52-XO-05M" secondAttribute="top" constant="8" id="bP8-nD-9xR"/>
+                                        <constraint firstAttribute="bottom" secondItem="YEd-SS-7NV" secondAttribute="bottom" constant="8" id="jTH-hu-685"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="houseImageButton" destination="EYy-YS-lF2" id="2k0-jQ-wlG"/>
+                                    <outlet property="personGuestLabel" destination="Kjh-Sn-e0R" id="cQm-dU-dkl"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0MU-D2-qYd" id="hqs-K6-DLJ"/>
+                            <outlet property="delegate" destination="0MU-D2-qYd" id="Ru5-cg-cEF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uVc-BW-6ft">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fLQ-Og-1f0">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="0MU-D2-qYd" id="kMt-xg-Ug1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BZY-N8-Tlo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792.75362318840587" y="26.785714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yLe-Po-Lpz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c30-Bz-IBS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cBw-DL-AIh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0MU-D2-qYd" kind="relationship" relationship="rootViewController" id="3at-j3-qqU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FRm-sm-yW1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="43.478260869565219" y="27.455357142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hogwarts" width="224" height="224"/>
+    </resources>
+</document>
